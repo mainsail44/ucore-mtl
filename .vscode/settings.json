@@ -1,0 +1,9 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#0004ff", // Active title bar background
+    "titleBar.activeForeground": "#ffffff", // Active title text color
+    "titleBar.inactiveBackground": "#2d2d2d", // Inactive title bar background
+    "titleBar.inactiveForeground": "#bbbbbb", // Inactive title text color
+    "titleBar.border": "#ffcc00" // Optional: Adds a border under the title bar
+  }
+}
