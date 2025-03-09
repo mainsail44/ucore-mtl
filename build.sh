@@ -2,27 +2,33 @@
 
 set -ouex pipefail
 
-### Install packages
-
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
-
-# this installs a package from fedora repos
-dnf5 install -y tmux 
-
 echo "::group:: ===Server Packages==="
-/ctx/server-pkgs.sh
+
+METALVISOR_PACKAGES=(
+    binutils
+    edk2-ovmf
+    rclone
+    socat
+    swtpm
+    ovn
+    ovn-central
+    ovn-host
+    openvswitch
+    pciutils
+    go1.24
+    nats-server.x86_64
+)
+
+    # golang-github-nats-io-devel.noarch \
+    # golang-github-nats-io-jwt-2.x86_64 \
+    # golang-github-nats-io-jwt-devel.noarch \
+    # golang-github-nats-io-nkeys.x86_64 \
+    # golang-github-nats-io-nkeys-devel.noarch \
+    # golang-github-nats-io-server-devel.noarch \
+    # golang-github-nats-io-streaming-server.x86_64 \
+    # golang-github-nats-io-streaming-server-devel.noarch 
+
+# Install Metalvisor-related packages
+dnf5 install -y "${METALVISOR_PACKAGES[@]}"
+
 echo "::endgroup::"
-
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
-
-#### Example for enabling a System Unit File
-
-systemctl enable podman.socket
