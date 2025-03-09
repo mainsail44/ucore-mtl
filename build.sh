@@ -5,17 +5,10 @@ set -ouex pipefail
 echo "::group:: ===Server Packages==="
 
 METALVISOR_PACKAGES=(
-    binutils
-    edk2-ovmf
-    rclone
-    socat
-    swtpm
     ovn
     ovn-central
     ovn-host
     openvswitch
-    pciutils
-    go1.24
     nats-server.x86_64
 )
 
