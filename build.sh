@@ -2,7 +2,9 @@
 
 set -ouex pipefail
 
+echo "==============================="
 echo "::group:: ===Server Packages==="
+
 
 METALVISOR_PACKAGES=(
     ovn
@@ -23,3 +25,5 @@ METALVISOR_PACKAGES=(
 dnf5 install -y "${METALVISOR_PACKAGES[@]}"
 
 echo "::endgroup::"
+echo "==============================="
+
